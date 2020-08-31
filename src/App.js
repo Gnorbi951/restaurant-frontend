@@ -4,7 +4,8 @@ import './App.css';
 import MainPage from "./Components/MainPage";
 
 function App() {
-    const cloudhost = 'https://damp-atoll-23585.herokuapp.com';
+    // TODO: Research for an if else to switch hosts whether I'm on localhost or on netlify
+    const cloudHost = 'https://damp-atoll-23585.herokuapp.com';
     const localhost = 'http://localhost:8080'
 
     axios.interceptors.request.use(function(config) {
