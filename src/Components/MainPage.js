@@ -6,7 +6,7 @@ const MainPage = () => {
     const [message, setMessage] = useState();
 
     useEffect(() => {
-        axios.get("https://damp-atoll-23585.herokuapp.com/test")
+        axios.get("/test")
             .then(response => {
                 setMessage(response)
                 console.log(response)
