@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainPage from "./Components/MainPage";
 
 function App() {
@@ -13,10 +14,11 @@ function App() {
     });
 
   return (
-    <div className="App">
-      <h1>Restaurant app </h1>
-        <MainPage/>
-    </div>
+    <React.Fragment>
+        <Router>
+            <Route exact path={"/"} component={MainPage} />
+        </Router>
+    </React.Fragment>
   );
 }
 
