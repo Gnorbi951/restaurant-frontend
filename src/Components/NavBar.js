@@ -7,7 +7,7 @@ const NavBar = () => {
       <React.Fragment>
           <NavBarContainer>
             <NavBarLink to={'/'}>Home</NavBarLink>
-            <NavBarLink to={'/'}>Menu</NavBarLink>
+            <NavBarLink to={'/menu'}>Menu</NavBarLink>
             <NavBarLink to={'/'}>Order&nbsp;Now</NavBarLink>
             <NavBarLink to={'/'}>About</NavBarLink>
             <LoginIcon to={'/'}>Login</LoginIcon>

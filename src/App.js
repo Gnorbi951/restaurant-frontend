@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainPage from "./Components/MainPage";
 import NavBar from "./Components/NavBar";
+import Menu from "./Components/Menu";
 
 function App() {
     // TODO: Research for an if else to switch hosts whether I'm on localhost or on netlify
@@ -19,6 +20,7 @@ function App() {
         <Router>
             <NavBar />
             <Route exact path={"/"} component={MainPage} />
+            <Route exact path={"/menu"} component={Menu} />
         </Router>
     </React.Fragment>
   );
