@@ -24,10 +24,11 @@ const MainPage = () => {
 }
 
 const DishWrapper = styled.div`
-    background: url("https://hips.hearstapps.com/del.h-cdn.co/assets/17/04/1024x512/landscape-1485748477-caprese-chicken.jpg?resize=980:*");
+    background: url("https://hips.hearstapps.com/del.h-cdn.co/assets/17/04/1024x512/landscape-1485748477-caprese-chicken.jpg");
     height: 30vw;
     max-height: 480px;
     width: 100%;
+    background-size: cover;
     padding-left: 55vw;
     box-sizing: border-box;
     box-shadow: inset -55vw 0 60px 0px #D4D4D4;
