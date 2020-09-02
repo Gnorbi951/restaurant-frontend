@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import background from '../images/restaurant_background.jpg'
+import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
 
@@ -12,9 +13,52 @@ const MainPage = () => {
                 <SubTitle>The Best Restaurant in&nbsp;your&nbsp;area</SubTitle>
                 <RestaurantImage src={background} alt={"background_image"} />
             </WelcomeImageContainer>
+            <DishWrapper>
+                <DishWrapperRightBox>
+                    <RightBoxHead>Check out our finest dishes:</RightBoxHead>
+                    <MenuButton to={"/menu"}>Click Here</MenuButton>
+                </DishWrapperRightBox>
+            </DishWrapper>
         </React.Fragment>
     )
 }
+
+const DishWrapper = styled.div`
+    background: url("https://hips.hearstapps.com/del.h-cdn.co/assets/17/04/1024x512/landscape-1485748477-caprese-chicken.jpg?resize=980:*");
+    height: 30vw;
+    max-height: 480px;
+    width: 100%;
+    padding-left: 55vw;
+    box-sizing: border-box;
+    box-shadow: inset -55vw 0 60px 0px #D4D4D4;
+`;
+
+const DishWrapperRightBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-top: 7vw;
+`;
+
+const RightBoxHead = styled.div`
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    font: 2vw 'Merienda One', Helvetica, sans-serif;
+`;
+
+const MenuButton = styled(Link)`
+    margin-top: 3vw;
+    margin-left: auto;
+    margin-right: auto;
+    
+    text-decoration: none;
+    color: #fff;
+    
+    background: #141414;
+    padding: 1.5vw;
+    font-size: 1.7vw;
+    border-radius: 5%;
+`;
 
 const WelcomeImageContainer = styled.div`
     position: relative;
