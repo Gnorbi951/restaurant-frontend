@@ -45,6 +45,9 @@ const RightBoxHead = styled.div`
     margin-left: auto;
     margin-right: auto;
     font: 2vw 'Merienda One', Helvetica, sans-serif;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
 `;
 
 const MenuButton = styled(Link)`
@@ -58,6 +61,9 @@ const MenuButton = styled(Link)`
     background: #141414;
     padding: 1.5vw;
     font-size: 1.7vw;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
     border-radius: 5%;
 `;
 
