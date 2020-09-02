@@ -23,7 +23,13 @@ const LoginIcon = styled(Link)`
     color: #fff;
     text-decoration: none;
     margin: 0.5rem 1rem;
-    font-size: 2.3vw;
+    font-size: 1.5vw;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
+    @media (max-width: 800px) and (min-width: 601px) {
+        font-size: 2vw;
+    }
     color: #fcbf49;
     font-weight: bold;
     margin-left: auto;
@@ -38,7 +44,13 @@ const NavBarLink = styled(Link)`
     text-decoration: none;
     margin: 0.5rem 1rem;
     font-weight: bold;
-    font-size: 2.3vw;
+    font-size: 1.5vw;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
+    @media (max-width: 800px) and (min-width: 601px) {
+        font-size: 2vw;
+    }
     &:hover {
     transition: 350ms;
     color: #f77f00;
