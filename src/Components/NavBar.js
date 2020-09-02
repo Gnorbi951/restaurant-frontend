@@ -47,7 +47,7 @@ const NavBarLink = styled(Link)`
 `;
 
 const NavBarContainer = styled.div`
-    background-color: #003049;
+    background-color: #2b2b2b;
     display: flex;
     width: 100%;
 `;
