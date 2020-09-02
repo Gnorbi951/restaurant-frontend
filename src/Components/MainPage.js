@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import background from '../images/restaurant_background.jpg'
+import background from '../images/restaurant_background.jpg';
 import dish from '../images/main_page_dish.jpg';
+import delivery from '../images/delivery2.jpg';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
@@ -20,9 +21,23 @@ const MainPage = () => {
                     <MenuButton to={"/menu"}>Click Here</MenuButton>
                 </DishWrapperRightBox>
             </DishWrapper>
+            <DeliveryWrapper>
+                Hello there
+            </DeliveryWrapper>
         </React.Fragment>
     )
 }
+
+const DeliveryWrapper = styled.div`
+    background: url(${delivery});
+    height: 30vw;
+    max-height: 480px;
+    width: 100%;
+    background-size: cover;
+    padding-right: 55vw;
+    box-sizing: border-box;
+    box-shadow: inset 55vw 0 60px 0px #D4D4D4;
+`;
 
 const DishWrapper = styled.div`
     background: url(${dish});
