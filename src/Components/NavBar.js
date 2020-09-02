@@ -23,7 +23,7 @@ const LoginIcon = styled(Link)`
     color: #fff;
     text-decoration: none;
     margin: 0.5rem 1rem;
-    font-size: 140%;
+    font-size: 2.3vw;
     color: #fcbf49;
     font-weight: bold;
     margin-left: auto;
@@ -38,7 +38,7 @@ const NavBarLink = styled(Link)`
     text-decoration: none;
     margin: 0.5rem 1rem;
     font-weight: bold;
-    font-size: 140%;
+    font-size: 2.3vw;
     &:hover {
     transition: 350ms;
     color: #f77f00;
