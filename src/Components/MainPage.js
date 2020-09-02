@@ -9,7 +9,7 @@ const MainPage = () => {
         <React.Fragment>
             <WelcomeImageContainer>
                 <Title>Margheriti</Title>
-                <h1>The Best Restaurant in your area</h1>
+                <SubTitle>The Best Restaurant in your area</SubTitle>
                 <RestaurantImage src={background} alt={"background_image"} />
             </WelcomeImageContainer>
         </React.Fragment>
@@ -28,6 +28,13 @@ const Title = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+`;
+
+const SubTitle = styled.div`
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -60%);
 `;
 
 const RestaurantImage = styled.img`
