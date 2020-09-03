@@ -13,7 +13,7 @@ const Menu = () => {
     return(
         <React.Fragment>
             <Header>Menu</Header>
-            <Category categoryList={categories} />
+            {categories? <Category categoryList={categories} />: <h1>Loading</h1>}
         </React.Fragment>
 
     );
