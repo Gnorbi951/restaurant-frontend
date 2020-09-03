@@ -1,8 +1,21 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from 'axios';
+import Category from "./SubComponents/Category";
 import styled from 'styled-components';
 const Menu = () => {
+    const [categories, setCategories] = useState();
+
+    useEffect(() => {
+        axios.get('/category/all')
+            .then(resp => setCategories(resp.data));
+    },[])
+
     return(
-        <Header>Menu</Header>
+        <React.Fragment>
+            <Header>Menu</Header>
+            <Category categoryList={categories} />
+        </React.Fragment>
+
     );
 }
 
