@@ -1,5 +1,7 @@
-import React, {useEffect, useState} from "react";
-import background from '../images/restaurant_background.jpg'
+import React from "react";
+import background from '../images/restaurant_background.jpg';
+import dish from '../images/main_page_dish.jpg';
+import delivery from '../images/delivery2.jpg';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
@@ -19,15 +21,34 @@ const MainPage = () => {
                     <MenuButton to={"/menu"}>Click Here</MenuButton>
                 </DishWrapperRightBox>
             </DishWrapper>
+            <DeliveryWrapperLeftBox>
+                <LeftBoxHead>Use our delivery service</LeftBoxHead>
+                <DeliveryButton to={"/order_now"}>Click Here</DeliveryButton>
+            </DeliveryWrapperLeftBox>
         </React.Fragment>
     )
 }
 
-const DishWrapper = styled.div`
-    background: url("https://hips.hearstapps.com/del.h-cdn.co/assets/17/04/1024x512/landscape-1485748477-caprese-chicken.jpg?resize=980:*");
+const DeliveryWrapperLeftBox = styled.div`
+    background: url(${delivery});
     height: 30vw;
     max-height: 480px;
     width: 100%;
+    background-size: cover;
+    padding-right: 55vw;
+    box-sizing: border-box;
+    box-shadow: inset 55vw 0 60px 0px #D4D4D4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const DishWrapper = styled.div`
+    background: url(${dish});
+    height: 30vw;
+    max-height: 480px;
+    width: 100%;
+    background-size: cover;
     padding-left: 55vw;
     box-sizing: border-box;
     box-shadow: inset -55vw 0 60px 0px #D4D4D4;
@@ -44,6 +65,19 @@ const RightBoxHead = styled.div`
     margin-left: auto;
     margin-right: auto;
     font: 2vw 'Merienda One', Helvetica, sans-serif;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
+`;
+
+const LeftBoxHead = styled.div`
+    font-weight: bold;
+    text-align: center;
+    padding-top: 7vw;
+    font: 2vw 'Merienda One', Helvetica, sans-serif;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
 `;
 
 const MenuButton = styled(Link)`
@@ -57,7 +91,36 @@ const MenuButton = styled(Link)`
     background: #141414;
     padding: 1.5vw;
     font-size: 1.7vw;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
     border-radius: 5%;
+    &:hover {
+    transition: 350ms;
+    color: #f77f00;
+    justify-content: flex-start;
+  }
+`;
+
+const DeliveryButton = styled(Link)`
+    margin-top: 3vw;
+    horizontal-align: middle;
+    
+    text-decoration: none;
+    color: #fff;
+    
+    background: #141414;
+    padding: 1.5vw;
+    font-size: 1.7vw;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
+    border-radius: 5%;
+    &:hover {
+    transition: 350ms;
+    color: #f77f00;
+    justify-content: flex-start;
+  }
 `;
 
 const WelcomeImageContainer = styled.div`
