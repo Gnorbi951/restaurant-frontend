@@ -8,11 +8,11 @@ import Order from "./Components/Order";
 
 function App() {
     // TODO: Research for an if else to switch hosts whether I'm on localhost or on netlify
-    //const cloudHost = 'https://damp-atoll-23585.herokuapp.com';
-    const localhost = 'http://localhost:8080'
+    const host = 'https://damp-atoll-23585.herokuapp.com';
+    //const host = 'http://localhost:8080'
 
     axios.interceptors.request.use(function(config) {
-        config.url = localhost + config.url; // Setup request url base
+        config.url = host + config.url; // Setup request url base
         return config;
     });
 
