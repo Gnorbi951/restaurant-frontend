@@ -1,14 +1,14 @@
 import React from "react";
-import MenuItems from "./MenuItems";
+import MenuItemsHandler from "./MenuItemsHandler";
 
 const Category = (props) => {
     return(
         <React.Fragment>
             <div>
             {props.categoryList.map((category) => (
-                <div>
+                <div key={category.id}>
                 <h1 key={category.id}>{category.name}</h1>
-                <MenuItems currentCategory={category.id} />
+                <MenuItemsHandler currentCategory={category.id}/>
                 </div>
             ))}
             </div>
