@@ -95,6 +95,11 @@ const MenuButton = styled(Link)`
         font-size: 3vw;
     }
     border-radius: 5%;
+    &:hover {
+    transition: 350ms;
+    color: #f77f00;
+    justify-content: flex-start;
+  }
 `;
 
 const DeliveryButton = styled(Link)`
@@ -111,7 +116,11 @@ const DeliveryButton = styled(Link)`
         font-size: 3vw;
     }
     border-radius: 5%;
-
+    &:hover {
+    transition: 350ms;
+    color: #f77f00;
+    justify-content: flex-start;
+  }
 `;
 
 const WelcomeImageContainer = styled.div`
