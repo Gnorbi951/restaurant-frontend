@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainPage from "./Components/MainPage";
 import NavBar from "./Components/NavBar";
 import Menu from "./Components/Menu";
+import Order from "./Components/Order";
 
 function App() {
     // TODO: Research for an if else to switch hosts whether I'm on localhost or on netlify
@@ -21,6 +22,7 @@ function App() {
             <NavBar />
             <Route exact path={"/"} component={MainPage} />
             <Route exact path={"/menu"} component={Menu} />
+            <Route exact path={"/order_now"} component={Order}/>
         </Router>
     </React.Fragment>
   );

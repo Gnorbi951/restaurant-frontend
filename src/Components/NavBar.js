@@ -8,7 +8,7 @@ const NavBar = () => {
           <NavBarContainer>
             <NavBarLink to={'/'}>Home</NavBarLink>
             <NavBarLink to={'/menu'}>Menu</NavBarLink>
-            <NavBarLink to={'/'}>Order&nbsp;Now</NavBarLink>
+            <NavBarLink to={'/order_now'}>Order Now</NavBarLink>
             <NavBarLink to={'/'}>About</NavBarLink>
             <LoginIcon to={'/'}>Login</LoginIcon>
           </NavBarContainer>

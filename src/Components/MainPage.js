@@ -23,7 +23,7 @@ const MainPage = () => {
             </DishWrapper>
             <DeliveryWrapperLeftBox>
                 <LeftBoxHead>Use our delivery service</LeftBoxHead>
-                <DeliveryButton>Click Here</DeliveryButton>
+                <DeliveryButton to={"/order_now"}>Click Here</DeliveryButton>
             </DeliveryWrapperLeftBox>
         </React.Fragment>
     )
