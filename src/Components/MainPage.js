@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import background from '../images/restaurant_background.jpg';
 import dish from '../images/main_page_dish.jpg';
 import delivery from '../images/delivery2.jpg';
@@ -21,14 +21,15 @@ const MainPage = () => {
                     <MenuButton to={"/menu"}>Click Here</MenuButton>
                 </DishWrapperRightBox>
             </DishWrapper>
-            <DeliveryWrapper>
-                Hello there
-            </DeliveryWrapper>
+            <DeliveryWrapperLeftBox>
+                <LeftBoxHead>Use our delivery service</LeftBoxHead>
+
+            </DeliveryWrapperLeftBox>
         </React.Fragment>
     )
 }
 
-const DeliveryWrapper = styled.div`
+const DeliveryWrapperLeftBox = styled.div`
     background: url(${delivery});
     height: 30vw;
     max-height: 480px;
@@ -60,6 +61,16 @@ const RightBoxHead = styled.div`
     font-weight: bold;
     margin-left: auto;
     margin-right: auto;
+    font: 2vw 'Merienda One', Helvetica, sans-serif;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
+`;
+
+const LeftBoxHead = styled.div`
+    font-weight: bold;
+    text-align: center;
+    padding-top: 7vw;
     font: 2vw 'Merienda One', Helvetica, sans-serif;
     @media (max-width: 600px) {
         font-size: 3vw;
