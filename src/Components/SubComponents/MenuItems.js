@@ -1,4 +1,6 @@
 import React from "react";
+import styled from "styled-components";
+import cameraIcon from "../../images/camera.png"
 
 const MenuItems = (props) => {
     console.log(props.items)
@@ -9,17 +11,17 @@ const MenuItems = (props) => {
                         <table>
                             <thead>
                                 <tr>
-                                <td>Picture</td>
-                                <td>Name</td>
-                                <td>Price</td>
+                                <Data>Picture</Data>
+                                <Data>Name</Data>
+                                <Data>Price</Data>
                                 </tr>
                             </thead>
                             <tbody>
                             {props.items.map((item) => (
                                 <tr key={item.id}>
-                                <td>{item.picture}</td>
-                                <td>{item.name}</td>
-                                <td>{item.price}</td>
+                                <Data><a href={`${item.picture}`}><Logo src={cameraIcon} alt={"camera_icon"} /></a></Data>
+                                <Data>{item.name}</Data>
+                                <Data>{item.price}</Data>
                                 </tr>
                             ))}
                             </tbody>
@@ -29,5 +31,15 @@ const MenuItems = (props) => {
         </React.Fragment>
     );
 }
+
+const Data = styled.td`
+    border: solid 2px
+`;
+
+const Logo = styled.img`
+    width: 4vw;
+    padding-left: auto;
+`;
+
 
 export default MenuItems;
