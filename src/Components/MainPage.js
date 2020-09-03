@@ -23,7 +23,7 @@ const MainPage = () => {
             </DishWrapper>
             <DeliveryWrapperLeftBox>
                 <LeftBoxHead>Use our delivery service</LeftBoxHead>
-
+                <DeliveryButton>Click Here</DeliveryButton>
             </DeliveryWrapperLeftBox>
         </React.Fragment>
     )
@@ -38,6 +38,9 @@ const DeliveryWrapperLeftBox = styled.div`
     padding-right: 55vw;
     box-sizing: border-box;
     box-shadow: inset 55vw 0 60px 0px #D4D4D4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 const DishWrapper = styled.div`
@@ -92,6 +95,23 @@ const MenuButton = styled(Link)`
         font-size: 3vw;
     }
     border-radius: 5%;
+`;
+
+const DeliveryButton = styled(Link)`
+    margin-top: 3vw;
+    horizontal-align: middle;
+    
+    text-decoration: none;
+    color: #fff;
+    
+    background: #141414;
+    padding: 1.5vw;
+    font-size: 1.7vw;
+    @media (max-width: 600px) {
+        font-size: 3vw;
+    }
+    border-radius: 5%;
+
 `;
 
 const WelcomeImageContainer = styled.div`
