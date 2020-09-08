@@ -3,7 +3,6 @@ import styled from "styled-components";
 import cameraIcon from "../../images/camera.png"
 
 const MenuItems = (props) => {
-    console.log(props.items)
     return(
         <React.Fragment>
 
