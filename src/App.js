@@ -7,12 +7,9 @@ import Menu from "./Components/Menu";
 import Order from "./Components/Order";
 
 function App() {
-    // TODO: Research for an if else to switch hosts whether I'm on localhost or on netlify
-    const host = 'https://damp-atoll-23585.herokuapp.com';
-    //const host = 'http://localhost:8080'
 
     axios.interceptors.request.use(function(config) {
-        config.url = host + config.url; // Setup request url base
+        config.url = process.env.REACT_APP_AXIOS_URL + config.url; // Setup request url base
         return config;
     });
 
