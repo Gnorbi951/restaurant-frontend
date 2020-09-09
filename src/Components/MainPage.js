@@ -48,7 +48,7 @@ const DishWrapper = styled.div`
     height: 30vw;
     max-height: 480px;
     width: 100%;
-    background-size: auto;
+    background-size: 50%;
     background-repeat: no-repeat;
     padding-left: 55vw;
     box-sizing: border-box;
