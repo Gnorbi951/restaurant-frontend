@@ -20,7 +20,7 @@ const MenuItems = (props) => {
                                 <tr key={item.id}>
                                 <Data><a href={`${item.picture}`}><Logo src={cameraIcon} alt={"camera_icon"} /></a></Data>
                                 <Data>{item.name}</Data>
-                                <Data>{item.price}</Data>
+                                <Data>{item.price} Ft</Data>
                                 </tr>
                             ))}
                             </tbody>
