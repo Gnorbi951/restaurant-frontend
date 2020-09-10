@@ -96,8 +96,8 @@ const TData = styled.td`
 `;
 
 const Logo = styled.img`
-    width: 4vw;
-    padding-left: auto;
+    width: 3vw;
+    self-align: center;
 `;
 
 const Box = styled.div`
