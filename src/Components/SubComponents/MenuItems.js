@@ -12,8 +12,37 @@ const MenuItems = (props) => {
         for (let image of images) {
             let imageId = image.id.substr(4);
             let box = document.getElementById(`box${imageId}`);
-            console.log(box)
+            box.style.display = 'none';
+            image.onmouseover = function(e) {
+                let mousePos = getMouseLocation(e);
+                box.style.display = 'block';
+                box.style.top = (mousePos[1]) + 'px';
+                box.style.left = (mousePos[0]+20) + 'px';
+            };
+            image.onmousemove = function(e) {
+                let mousePos = getMouseLocation(e);
+
+                box.style.top = (mousePos[1]) + 'px';
+                box.style.left = (mousePos[0]+20) + 'px';
+            };
+            image.onmouseout = function() {
+                box.style.display = 'none';
+            };
         }
+    }
+    function getMouseLocation(e) {
+        if (!e){ let e = Window.event;}
+        let posx;
+        let posy;
+        if (e.pageX || e.pageY) {
+            posx = e.pageX;
+            posy = e.pageY;
+        }
+        else if (e.clientX || e.clientY) {
+            posx = e.clientX + document.body.scrollLeft    + document.documentElement.scrollLeft;
+            posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+        }
+        return new Array(posx, posy);
     }
 
     return(
