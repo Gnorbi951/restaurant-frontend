@@ -1,19 +1,28 @@
 import React from "react";
 import MenuItemsHandler from "./MenuItemsHandler";
+import styled from "styled-components";
 
 const Category = (props) => {
     return(
         <React.Fragment>
-            <div>
+            <ContentWrapper>
             {props.categoryList.map((category) => (
-                <div key={category.id}>
-                <h1 key={category.id}>{category.name}</h1>
+                <div className={"CategoryWrapper"} key={category.id}>
+                <CategoryTitle key={category.id}>{category.name}</CategoryTitle>
                 <MenuItemsHandler currentCategory={category.id}/>
                 </div>
             ))}
-            </div>
+            </ContentWrapper>
         </React.Fragment>
     );
 }
+
+const ContentWrapper = styled.div`
+    margin-bottom: 20vw;
+`;
+
+const CategoryTitle = styled.h1`
+    font-family: 'Leckerli One', Helvetica, sans-serif;
+`;
 
 export default Category;
