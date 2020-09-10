@@ -61,7 +61,7 @@ const MenuItems = (props) => {
                             </thead>
                             <tbody>
                             {props.items.map((item) => (
-                                <tr key={item.id}>
+                                <TRow key={item.id}>
                                 <TData>
                                     <a id={`link${item.id}`} className={"logo"} href={`${item.picture}`}>
                                         <Logo src={cameraIcon} alt={"camera_icon"} />
@@ -70,7 +70,7 @@ const MenuItems = (props) => {
                                 </TData>
                                 <TData>{item.name}</TData>
                                 <TData>{item.price} Ft</TData>
-                                </tr>
+                                </TRow>
                             ))}
                             </tbody>
                         </Table>
@@ -82,16 +82,25 @@ const MenuItems = (props) => {
 const TableWrapper = styled.div`
     margin: auto;
     width: 60vw;
-    border: solid 1px;
     padding: 10px;
 `;
 
 const Table = styled.table`
     margin: auto;
+    width: 100%;
+    font-weight: bold;
+    border-spacing: 0px;
 `;
 
 const TData = styled.td`
-    border: solid 2px
+    text-align: center;
+`;
+
+const TRow = styled.tr`
+    
+        &:nth-child(2n+1) {
+        background-color: #b8b8b8;
+    }
 `;
 
 const Logo = styled.img`
