@@ -12,7 +12,6 @@ const MenuItems = (props) => {
         for (let link of links) {
             let imageId = link.id.substr(4);
             let box = document.getElementById(`box${imageId}`);
-            box.style.display = 'none';
             box.style.backgroundImage = `url(${link.href})`;
             box.style.width = "25vw";
             box.style.height = "20vw";
@@ -102,6 +101,7 @@ const Logo = styled.img`
 
 const Box = styled.div`
     position: absolute;
+    display: none;
     top: 0px;
     left: 0px;
     border: solid 1px;
