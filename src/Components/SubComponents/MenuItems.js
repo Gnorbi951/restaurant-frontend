@@ -5,35 +5,37 @@ import cameraIcon from "../../images/camera.png"
 const MenuItems = (props) => {
 
     useEffect(() => {
-        setup()
-    }, )
+        setup();
+    })
     function setup() {
-        let images = document.getElementsByClassName("logo");
-        for (let image of images) {
-            let imageId = image.id.substr(4);
+        const links = document.getElementsByClassName("logo");
+        for (let link of links) {
+            let imageId = link.id.substr(4);
             let box = document.getElementById(`box${imageId}`);
             box.style.display = 'none';
-            console.log(image.href);
-            box.style.backgroundImage = `url(${image.href})`;
-            image.onmouseover = function(e) {
+            box.style.backgroundImage = `url(${link.href})`;
+            box.style.width = "25vw";
+            box.style.height = "20vw";
+
+            link.onmouseover = function(e) {
                 let mousePos = getMouseLocation(e);
                 box.style.display = 'block';
                 box.style.top = (mousePos[1]) + 'px';
-                box.style.left = (mousePos[0]+20) + 'px';
+                box.style.left = (mousePos[0]) + 'px';
             };
-            image.onmousemove = function(e) {
+            link.onmousemove = function(e) {
                 let mousePos = getMouseLocation(e);
 
                 box.style.top = (mousePos[1]) + 'px';
                 box.style.left = (mousePos[0]+20) + 'px';
             };
-            image.onmouseout = function() {
+            link.onmouseout = function() {
                 box.style.display = 'none';
             };
         }
     }
     function getMouseLocation(e) {
-        if (!e){ let e = Window.event;}
+        if (!e){ e = Window.event;}
         let posx;
         let posy;
         if (e.pageX || e.pageY) {
@@ -49,7 +51,6 @@ const MenuItems = (props) => {
 
     return(
         <React.Fragment>
-
                     <div>
                         <table>
                             <thead>
@@ -66,7 +67,7 @@ const MenuItems = (props) => {
                                     <a id={`link${item.id}`} className={"logo"} href={`${item.picture}`}>
                                         <Logo src={cameraIcon} alt={"camera_icon"} />
                                     </a>
-                                    <Box id={`box${item.id}`}></Box>
+                                    <Box id={`box${item.id}`}/>
                                 </Data>
                                 <Data>{item.name}</Data>
                                 <Data>{item.price} Ft</Data>
@@ -75,7 +76,6 @@ const MenuItems = (props) => {
                             </tbody>
                         </table>
                     </div>
-
         </React.Fragment>
     );
 }
@@ -91,11 +91,9 @@ const Logo = styled.img`
 
 const Box = styled.div`
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     border: solid 1px;
-    width: 20vw;
-    height: 20vw;
     background-size: cover;
     background-color: #fff;
     padding: 5px;
