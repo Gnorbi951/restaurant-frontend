@@ -23,6 +23,8 @@ const ContentWrapper = styled.div`
 
 const CategoryTitle = styled.h1`
     font-family: 'Leckerli One', Helvetica, sans-serif;
+    text-align: center;
+    font-size: 3vw;
 `;
 
 export default Category;

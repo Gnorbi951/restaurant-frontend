@@ -51,36 +51,47 @@ const MenuItems = (props) => {
 
     return(
         <React.Fragment>
-                    <div>
-                        <table>
+                    <TableWrapper>
+                        <Table>
                             <thead>
                                 <tr>
-                                <Data>Picture</Data>
-                                <Data>Name</Data>
-                                <Data>Price</Data>
+                                <TData>Picture</TData>
+                                <TData>Name</TData>
+                                <TData>Price</TData>
                                 </tr>
                             </thead>
                             <tbody>
                             {props.items.map((item) => (
                                 <tr key={item.id}>
-                                <Data>
+                                <TData>
                                     <a id={`link${item.id}`} className={"logo"} href={`${item.picture}`}>
                                         <Logo src={cameraIcon} alt={"camera_icon"} />
                                     </a>
                                     <Box id={`box${item.id}`}/>
-                                </Data>
-                                <Data>{item.name}</Data>
-                                <Data>{item.price} Ft</Data>
+                                </TData>
+                                <TData>{item.name}</TData>
+                                <TData>{item.price} Ft</TData>
                                 </tr>
                             ))}
                             </tbody>
-                        </table>
-                    </div>
+                        </Table>
+                    </TableWrapper>
         </React.Fragment>
     );
 }
 
-const Data = styled.td`
+const TableWrapper = styled.div`
+    margin: auto;
+    width: 60vw;
+    border: solid 1px;
+    padding: 10px;
+`;
+
+const Table = styled.table`
+    margin: auto;
+`;
+
+const TData = styled.td`
     border: solid 2px
 `;
 
