@@ -13,6 +13,8 @@ const MenuItems = (props) => {
             let imageId = image.id.substr(4);
             let box = document.getElementById(`box${imageId}`);
             box.style.display = 'none';
+            console.log(image.href);
+            box.style.backgroundImage = `url(${image.href})`;
             image.onmouseover = function(e) {
                 let mousePos = getMouseLocation(e);
                 box.style.display = 'block';
@@ -42,7 +44,7 @@ const MenuItems = (props) => {
             posx = e.clientX + document.body.scrollLeft    + document.documentElement.scrollLeft;
             posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
         }
-        return new Array(posx, posy);
+        return [posx, posy];
     }
 
     return(
@@ -64,7 +66,7 @@ const MenuItems = (props) => {
                                     <a id={`link${item.id}`} className={"logo"} href={`${item.picture}`}>
                                         <Logo src={cameraIcon} alt={"camera_icon"} />
                                     </a>
-                                    <Box id={`box${item.id}`}>Some Text</Box>
+                                    <Box id={`box${item.id}`}></Box>
                                 </Data>
                                 <Data>{item.name}</Data>
                                 <Data>{item.price} Ft</Data>
@@ -92,6 +94,9 @@ const Box = styled.div`
     top: 0;
     left: 0;
     border: solid 1px;
+    width: 20vw;
+    height: 20vw;
+    background-size: cover;
     background-color: #fff;
     padding: 5px;
 `;
