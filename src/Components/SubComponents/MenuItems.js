@@ -55,7 +55,7 @@ const MenuItems = (props) => {
                             <thead>
                                 <tr>
                                 <TData>Picture</TData>
-                                <TData>Name</TData>
+                                <TData> </TData>
                                 <TData>Price</TData>
                                 </tr>
                             </thead>
@@ -89,6 +89,13 @@ const Table = styled.table`
     margin: auto;
     width: 100%;
     font-weight: bold;
+    font-size: 1vw;
+    @media (max-width: 600px) and (min-width: 401px) {
+        font-size: 2vw;
+    }
+    @media (max-width: 400px) {
+        font-size: 2.5vw;
+    }
     border-spacing: 0px;
 `;
 
@@ -97,7 +104,6 @@ const TData = styled.td`
 `;
 
 const TRow = styled.tr`
-    
         &:nth-child(2n+1) {
         background-color: #b8b8b8;
     }
@@ -106,6 +112,13 @@ const TRow = styled.tr`
 const Logo = styled.img`
     width: 3vw;
     self-align: center;
+    @media (max-width: 600px) and (min-width: 401px) {
+        width: 5vw;
+    }
+    @media (max-width: 400px) {
+        width: 8vw;
+    }
+    
 `;
 
 const Box = styled.div`
