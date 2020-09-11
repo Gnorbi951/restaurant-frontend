@@ -5,6 +5,7 @@ import MainPage from "./Components/MainPage";
 import NavBar from "./Components/NavBar";
 import Menu from "./Components/Menu";
 import Order from "./Components/Order";
+import Login from "./Components/Login";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
             <Route exact path={"/"} component={MainPage} />
             <Route exact path={"/menu"} component={Menu} />
             <Route exact path={"/order_now"} component={Order}/>
+            <Route exact path={"/login"} component={Login} />
         </Router>
     </React.Fragment>
   );
