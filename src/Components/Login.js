@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
+import styled from "styled-components";
 import Cookies from 'universal-cookie';
 
 const Login = () => {
@@ -7,6 +8,14 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("No message");
     const cookies = new Cookies();
+    let isLoggedIn = false;
+
+    useEffect(() => {
+        if (cookies.get("token")) {
+            isLoggedIn = true;
+        }
+        console.log(isLoggedIn)
+    })
 
     function login() {
         axios.post(
@@ -27,12 +36,18 @@ const Login = () => {
                 setMessage("Something went wrong");
             });
     }
+    function logout() {
+        cookies.remove('token', { path: '/' });
+        window.location.href = '/login';
+    }
 
     return(
         <React.Fragment>
             <input
                 type = "text"
                 name = "username"
+                autoComplete={"off"}
+                placeholder={"Username"}
                 value = {username}
                 onChange = {e =>
                     setUsername(e.target.value)
@@ -41,6 +56,7 @@ const Login = () => {
             <input
                 type = "password"
                 name = "password"
+                placeholder={"password"}
                 value = {password}
                 onChange = {e =>
                     setPassword(e.target.value)
@@ -51,6 +67,11 @@ const Login = () => {
                 onClick = {login} >
                 Login
                 </button>
+            <button
+                type="submit"
+                onClick= {logout} >
+                Logout
+            </button>
                         <div> {message} </div>
         </React.Fragment>
     );
