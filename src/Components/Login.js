@@ -14,7 +14,6 @@ const Login = () => {
         if (cookies.get("token")) {
             isLoggedIn = true;
         }
-        console.log(isLoggedIn)
     })
 
     function login() {
@@ -29,7 +28,7 @@ const Login = () => {
             }
         )
             .then(res => {
-                setMessage(res.data[0]);
+                localStorage.setItem("name", res.data[0]);
                 cookies.set('token', res.data[1], {path: '/'});
             })
             .catch(() => {
@@ -38,6 +37,7 @@ const Login = () => {
     }
     function logout() {
         cookies.remove('token', { path: '/' });
+        localStorage.removeItem("name");
         window.location.href = '/login';
     }
 
