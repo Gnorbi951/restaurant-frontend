@@ -17,25 +17,31 @@ const Login = () => {
     })
 
     function login() {
-        axios.post(
-            "/auth/login",
-            {
-                username,
-                password
-            },
-            {
-                //withCredentials: true
-            }
-        )
-            .then(res => {
-                localStorage.setItem("name", res.data[0]);
-                cookies.set('token', res.data[1], {path: '/'});
-                setMessage(`Logged in as ${res.data[0]}`)
-                setLoggedIn(true);
-            })
-            .catch(() => {
-                setMessage("Something went wrong");
-            });
+        if (isLoggedIn) {
+            setMessage("Already logged in");
+        } else {
+            axios.post(
+                "/auth/login",
+                {
+                    username,
+                    password
+                },
+                {
+                    //withCredentials: true
+                }
+            )
+                .then(res => {
+                    localStorage.setItem("name", res.data[0]);
+                    cookies.set('token', res.data[1], {path: '/'});
+                    setMessage(`Logged in as ${res.data[0]}`)
+                    setLoggedIn(true);
+                    setUsername("");
+                    setPassword("");
+                })
+                .catch(() => {
+                    setMessage("Something went wrong");
+                });
+        }
     }
     function logout() {
         cookies.remove('token', { path: '/' });
