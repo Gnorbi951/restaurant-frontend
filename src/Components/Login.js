@@ -16,7 +16,7 @@ const Login = () => {
                 password
             },
             {
-                withCredentials: true
+                //withCredentials: true
             }
         )
             .then(res => {
