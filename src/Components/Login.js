@@ -52,7 +52,7 @@ const Login = () => {
     return(
         <React.Fragment>
             <LoginContainer>
-                <strong>Username:</strong>
+                <InputHead>Username:</InputHead>
             <Input
                 type = "text"
                 name = "username"
@@ -63,7 +63,7 @@ const Login = () => {
                     setUsername(e.target.value)
                 }
             />
-                <strong>Password:</strong>
+                <InputHead>Password:</InputHead>
             <Input
                 type = "password"
                 name = "password"
@@ -98,14 +98,27 @@ const LoginContainer = styled.div`
     }
 `;
 
+const InputHead = styled.div`
+    font-size: 2vw;
+    font-weight: bold;
+    @media (max-width: 600px) {
+        font-size: 5vw;
+    }
+`;
+
 const Input = styled.input`
     width: 100%;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
+    font-size: 2vw;
+    @media (max-width: 600px) {
+        font-size: 5vw;
+    }
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-radius: 5px;
 
 `;
 
@@ -125,7 +138,7 @@ const Button = styled.button`
         width: 30%;
         font-size: 5vw;
     }
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: bold;
     border-radius: 5px;
 `;
@@ -138,7 +151,7 @@ const LogoutButton = styled.button`
     cursor: pointer;
     border: none;
     border-radius: 3px;
-    font-size: 2vw;
+    font-size: 1vw;
     color: #fcbf49;
     @media (max-width: 600px) {
         font-size: 2vw;
