@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import axios from "axios";
+import Cookies from 'universal-cookie';
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("No message");
+    const cookies = new Cookies();
 
     function login() {
         axios.post(
@@ -18,8 +20,8 @@ const Login = () => {
             }
         )
             .then(res => {
-                setMessage(res.data);
-                console.log(res);
+                setMessage(res.data[0]);
+                cookies.set('token', res.data[1], {path: '/'});
             })
             .catch(() => {
                 setMessage("Something went wrong");
