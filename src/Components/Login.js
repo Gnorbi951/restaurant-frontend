@@ -8,11 +8,11 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("No message");
     const cookies = new Cookies();
-    let isLoggedIn = false;
+    const [isLoggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
         if (cookies.get("token")) {
-            isLoggedIn = true;
+            setLoggedIn(true);
         }
     })
 
@@ -30,6 +30,8 @@ const Login = () => {
             .then(res => {
                 localStorage.setItem("name", res.data[0]);
                 cookies.set('token', res.data[1], {path: '/'});
+                setMessage(`Logged in as ${res.data[0]}`)
+                setLoggedIn(true);
             })
             .catch(() => {
                 setMessage("Something went wrong");
@@ -67,11 +69,11 @@ const Login = () => {
                 onClick = {login} >
                 Login
                 </button>
-            <button
+            {isLoggedIn ? (<button
                 type="submit"
                 onClick= {logout} >
                 Logout
-            </button>
+            </button>) : ("")}
                         <div> {message} </div>
         </React.Fragment>
     );
