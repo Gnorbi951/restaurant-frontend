@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
 const NavBar = () => {
+    const[name, setName] = useState("");
+
+    useEffect(() => {
+        setName(localStorage.getItem("name"));
+    })
+
     return(
       <React.Fragment>
           <NavBarContainer>
@@ -10,7 +16,7 @@ const NavBar = () => {
             <NavBarLink to={'/menu'}>Menu</NavBarLink>
             <NavBarLink to={'/order_now'}>Order Now</NavBarLink>
             <NavBarLink to={'/'}>About</NavBarLink>
-            <LoginIcon to={'/login'}>Login</LoginIcon>
+            <LoginIcon to={'/login'}>{name ? `Welcome ${name}` : "Login"}</LoginIcon>
           </NavBarContainer>
 
       </React.Fragment>
