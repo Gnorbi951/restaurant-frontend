@@ -19,6 +19,8 @@ const Login = () => {
     function login() {
         if (isLoggedIn) {
             setMessage("Already logged in");
+        } else if(username === "" || password === "") {
+            setMessage("Empty field")
         } else {
             axios.post(
                 "/auth/login",
