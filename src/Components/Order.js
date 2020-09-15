@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import styled from "styled-components";
 
 const Order = () => {
     const [menu, setMenu] = useState([]);
@@ -24,13 +25,47 @@ const Order = () => {
             </React.Fragment>
         )
     } else {
+        if (menu.length !== 0) {
+            return(
+                <React.Fragment>
+                    <Main>
+                        <h1>Replace me with something</h1>
+                        <Cards>
+                            {menu.map((item) => (
+                                <CardsItem key={item.id}>
+                                    hello
+                                </CardsItem>
+                            ))}
+                        </Cards>
+                    </Main>
+                </React.Fragment>
+            );
+        }
         return(
             <React.Fragment>
-                Order
+                Loading
             </React.Fragment>
         );
     }
 
 }
+
+const Main = styled.div`
+    max-width: 1200px;
+    margin: 0 auto;
+`;
+
+const Cards = styled.li`
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+`;
+
+const CardsItem = styled.div`
+    display: flex;
+    padding: 1rem;
+`;
 
 export default Order;
