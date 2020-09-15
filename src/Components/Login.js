@@ -14,7 +14,7 @@ const Login = () => {
         if (cookies.get("token")) {
             setLoggedIn(true);
         }
-    })
+    }, [cookies])
 
     function login() {
         if (isLoggedIn) {
@@ -33,7 +33,8 @@ const Login = () => {
                 .then(res => {
                     localStorage.setItem("name", res.data[0]);
                     cookies.set('token', res.data[1], {path: '/'});
-                    setMessage(`Logged in as ${res.data[0]}`)
+                    //setMessage(`Logged in as ${res.data[0]}`)
+                    window.location.href = '/login';
                     setLoggedIn(true);
                     setUsername("");
                     setPassword("");

@@ -7,7 +7,7 @@ const NavBar = () => {
 
     useEffect(() => {
         setName(localStorage.getItem("name"));
-    })
+    }, [])
 
     return(
       <React.Fragment>
