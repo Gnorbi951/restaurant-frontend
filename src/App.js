@@ -6,9 +6,9 @@ import NavBar from "./Components/NavBar";
 import Menu from "./Components/Menu";
 import Order from "./Components/Order";
 import Login from "./Components/Login";
+import {CartProvider} from "./Components/Context/CartContext";
 
 function App() {
-
     axios.interceptors.request.use(function(config) {
         config.url = process.env.REACT_APP_AXIOS_URL + config.url; // Setup request url base
         return config;
@@ -20,8 +20,10 @@ function App() {
             <NavBar />
             <Route exact path={"/"} component={MainPage} />
             <Route exact path={"/menu"} component={Menu} />
-            <Route exact path={"/order_now"} component={Order}/>
-            <Route exact path={"/login"} component={Login} />
+            <CartProvider>
+                <Route exact path={"/order_now"} component={Order}/>
+                <Route exact path={"/login"} component={Login} />
+            </CartProvider>
         </Router>
     </React.Fragment>
   );

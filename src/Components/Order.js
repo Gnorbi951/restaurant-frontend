@@ -1,15 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import styled from "styled-components";
+import {CartContext} from "./Context/CartContext";
 
 const Order = () => {
     const [menu, setMenu] = useState([]);
+    const cart = useContext(CartContext);
     const config = {
         // Send cookie token
         withCredentials: true
     };
 
     useEffect(() => {
+        console.log(cart);
         console.log(localStorage.getItem("name"))
         axios.get("/order/all", config)
             .then(resp => {
