@@ -5,7 +5,7 @@ import {CartContext} from "./Context/CartContext";
 
 const Order = () => {
     const [menu, setMenu] = useState([]);
-    const cart = useContext(CartContext);
+    const [cart, setCart] = useContext(CartContext);
     const config = {
         // Send cookie token
         withCredentials: true
@@ -24,6 +24,7 @@ const Order = () => {
     function addItem(e) {
         console.log(e.target.id)
         let orderObject = {"id": e.target.id, "quantity": 1};
+        setCart("EEEEE");
 
     }
 
