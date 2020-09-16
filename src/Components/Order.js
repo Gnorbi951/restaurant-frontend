@@ -16,15 +16,34 @@ const Order = () => {
         console.log(localStorage.getItem("name"))
         axios.get("/order/all", config)
             .then(resp => {
-                console.log(resp.data)
                 setMenu(resp.data)
             })
     }, [])
 
     function addItem(e) {
         console.log(e.target.id)
-        let orderObject = {"id": e.target.id, "quantity": 1};
-        setCart("EEEEE");
+        let orderObject = {id: e.target.id, quantity: 1};
+        if (cart === undefined) {
+            setCart([orderObject]);
+        } else {
+            let found = false;
+            let index = 0;
+            for (let item of cart) {
+                if (item.id === e.target.id){
+                    found = true;
+                    break;
+                }
+                index++;
+            }
+            if (found) {
+                cart[index].quantity++;
+                setCart(cart);
+                console.log(cart)
+            } else {
+                cart.push(orderObject);
+                setCart(cart);
+            }
+        }
 
     }
 
