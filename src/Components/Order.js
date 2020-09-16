@@ -12,7 +12,6 @@ const Order = () => {
     };
 
     useEffect(() => {
-        console.log(cart);
         console.log(localStorage.getItem("name"))
         axios.get("/order/all", config)
             .then(resp => {
@@ -21,7 +20,6 @@ const Order = () => {
     }, [])
 
     function addItem(e) {
-        console.log(e.target.id)
         let orderObject = {id: e.target.id, quantity: 1};
         if (cart === undefined) {
             setCart([orderObject]);
@@ -38,13 +36,11 @@ const Order = () => {
             if (found) {
                 cart[index].quantity++;
                 setCart(cart);
-                console.log(cart)
             } else {
                 cart.push(orderObject);
                 setCart(cart);
             }
         }
-
     }
 
     if (localStorage.getItem("name") === null) {
@@ -59,6 +55,7 @@ const Order = () => {
                 <React.Fragment>
                     <Main>
                         <h1>Place your order</h1>
+                        <Cart href={"google.com"}>Cart</Cart>
                         <Cards>
                             {menu.map((item) => (
                                 <CardsItem key={item.id}>
@@ -68,7 +65,7 @@ const Order = () => {
                                     <CardContent>
                                         <CardTitle>{item.name}</CardTitle>
                                         {/*<CardText>Lorem ipsum</CardText>*/}
-                                        <CardButton className={"order_Button"} id={item.id} onClick={addItem}>Order Now</CardButton>
+                                        <CardButton className={"order_Button"} id={item.id} onClick={addItem}>Add To Cart</CardButton>
                                     </CardContent>
                                     </Card>
                                 </CardsItem>
@@ -86,6 +83,23 @@ const Order = () => {
     }
 
 }
+
+const Cart = styled.a`
+    width: 80px;
+    height: 80px;
+    background: #009879;
+    display: flex;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0.25);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+`;
 
 const Main = styled.div`
     max-width: 1200px;
