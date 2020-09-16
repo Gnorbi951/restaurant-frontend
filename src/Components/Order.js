@@ -18,6 +18,12 @@ const Order = () => {
             })
     }, [])
 
+    function addItem(e) {
+        console.log(e.target.id)
+        let orderObject = {"id": e.target.id, "quantity": 1};
+
+    }
+
     if (localStorage.getItem("name") === null) {
         return(
             <React.Fragment>
@@ -29,7 +35,7 @@ const Order = () => {
             return(
                 <React.Fragment>
                     <Main>
-                        <h1>Replace me with something</h1>
+                        <h1>Place your order</h1>
                         <Cards>
                             {menu.map((item) => (
                                 <CardsItem key={item.id}>
@@ -38,8 +44,8 @@ const Order = () => {
                                                    alt={"Food Image"} />
                                     <CardContent>
                                         <CardTitle>{item.name}</CardTitle>
-                                        <CardText>Lorem ipsum</CardText>
-                                        <CardButton>Order Now</CardButton>
+                                        {/*<CardText>Lorem ipsum</CardText>*/}
+                                        <CardButton className={"order_Button"} id={item.id} onClick={addItem}>Order Now</CardButton>
                                     </CardContent>
                                     </Card>
                                 </CardsItem>
@@ -83,7 +89,7 @@ const CardsItem = styled.div`
 `;
 
 const Card = styled.div`
-    background-color: white;
+    background-color: #D4D4D4;
     border-radius: 0.25rem;
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     display: flex;
@@ -92,13 +98,15 @@ const Card = styled.div`
 `;
 
 const CardImage = styled.img`
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
+    height: 200px!important;
+    width: 100%!important;
+    // vertical-align: middle;
+    object-fit: cover;
 `;
 
 const CardContent = styled.div`
-    padding: 1rem;
+    padding: 20px;
+    height: 130px;
     background: linear-gradient(to bottom left, #959392 40%, #7f7d7c 100%);
 `;
 
@@ -128,8 +136,13 @@ const CardButton = styled.button`
   display: block;
   width: 100%;
   cursor: pointer;
+  margin-top: 3rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: transparent;
+  &:hover {
+    transition: 350ms;
+    color: #f77f00; 
+  }
 `;
 
 export default Order;
