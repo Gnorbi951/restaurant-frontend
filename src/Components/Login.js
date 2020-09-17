@@ -93,7 +93,7 @@ const Login = () => {
                 ""
             ) : (
                 <Register>
-                    <Link to={"/register"}>Register Here</Link>
+                    <RegisterLink to={"/register"}>Register Here</RegisterLink>
                 </Register>
             )}
         </React.Fragment>
@@ -102,6 +102,14 @@ const Login = () => {
 
 const Register = styled.div`
     text-align: center
+`;
+
+const RegisterLink = styled(Link)`
+    background-color: #141414;
+    padding: 0.5rem;
+    color: #fcbf49;
+    text-decoration: none;
+    border-radius: 5px;
 `;
 
 const LoginContainer = styled.div`

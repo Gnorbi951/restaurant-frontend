@@ -44,7 +44,9 @@ const Order = () => {
     if (localStorage.getItem("name") === null) {
         return(
             <React.Fragment>
-                You must log in to order
+                <WarningContainer>
+                    You have to log in to order
+                </WarningContainer>
             </React.Fragment>
         )
     } else {
@@ -81,6 +83,14 @@ const Order = () => {
     }
 
 }
+
+const WarningContainer = styled.div`
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 10vw;
+    font-weight: bold;
+`;
+
 const CartImg = styled.img`
     max-width: 50px;
     max-height: 50px;
