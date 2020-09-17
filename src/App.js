@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import MainPage from "./Components/MainPage";
 import NavBar from "./Components/NavBar";
 import Menu from "./Components/Menu";
 import Order from "./Components/Order";
 import Login from "./Components/Login";
+import About from "./Components/About";
 import {CartProvider} from "./Components/Context/CartContext";
 import Cart from "./Components/Cart";
 import Register from "./Components/Register";
@@ -17,8 +18,7 @@ function App() {
 
     axios.interceptors.request.use(function(config) {
         if (config.url !== "/login" || config.url !== "/register") {
-            const token = cookies.get("token")
-            config.headers.Authorization = token;
+            config.headers.Authorization = cookies.get("token");
         }
         config.url = process.env.REACT_APP_AXIOS_URL + config.url;
         return config;
@@ -32,6 +32,7 @@ function App() {
             <Route exact path={"/menu"} component={Menu} />
             <Route exact path={"/login"} component={Login} />
             <Route exact path={"/register"} component={Register} />
+            <Route exact path={"/about"} component={About} />
             <CartProvider>
                 <Route exact path={"/order_now"} component={Order}/>
                 <Route exact path={"/cart"} component={Cart} />

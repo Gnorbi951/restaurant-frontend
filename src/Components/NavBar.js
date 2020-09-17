@@ -15,7 +15,7 @@ const NavBar = () => {
             <NavBarLink to={'/'}>Home</NavBarLink>
             <NavBarLink to={'/menu'}>Menu</NavBarLink>
             <NavBarLink to={'/order_now'}>Order Now</NavBarLink>
-            <NavBarLink to={'/'}>About</NavBarLink>
+            <NavBarLink to={'/about'}>About</NavBarLink>
             <LoginIcon to={'/login'}>{name ? `Welcome ${name}` : "Login"}</LoginIcon>
           </NavBarContainer>
 
