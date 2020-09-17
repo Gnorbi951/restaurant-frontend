@@ -10,7 +10,7 @@ import {CartProvider} from "./Components/Context/CartContext";
 
 function App() {
     axios.interceptors.request.use(function(config) {
-        config.url = process.env.REACT_APP_AXIOS_URL + config.url; // Setup request url base
+        config.url = process.env.REACT_APP_AXIOS_URL + config.url; // if url not login/register send token
         return config;
     });
 
