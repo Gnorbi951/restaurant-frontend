@@ -8,13 +8,9 @@ import cartIcon from "../images/cart.webp"
 const Order = () => {
     const [menu, setMenu] = useState([]);
     const [cart, setCart] = useContext(CartContext);
-    const config = {
-        // Send cookie token
-        withCredentials: true
-    };
 
     useEffect(() => {
-        axios.get("/order/all", config)
+        axios.get("/order/all")
             .then(resp => {
                 setMenu(resp.data)
             })
