@@ -9,11 +9,16 @@ import Login from "./Components/Login";
 import {CartProvider} from "./Components/Context/CartContext";
 import Cart from "./Components/Cart";
 import Register from "./Components/Register";
+import Cookies from 'universal-cookie';
 
 function App() {
+
+    const cookies = new Cookies();
+
     axios.interceptors.request.use(function(config) {
         if (config.url !== "/login" || config.url !== "/register") {
-            config.withCredentials = true;
+            const token = cookies.get("token")
+            config.headers.Authorization = token;
         }
         config.url = process.env.REACT_APP_AXIOS_URL + config.url;
         return config;
