@@ -8,6 +8,7 @@ import Order from "./Components/Order";
 import Login from "./Components/Login";
 import {CartProvider} from "./Components/Context/CartContext";
 import Cart from "./Components/Cart";
+import Register from "./Components/Register";
 
 function App() {
     axios.interceptors.request.use(function(config) {
@@ -22,6 +23,7 @@ function App() {
             <Route exact path={"/"} component={MainPage} />
             <Route exact path={"/menu"} component={Menu} />
             <Route exact path={"/login"} component={Login} />
+            <Route exact path={"/register"} component={Register}
             <CartProvider>
                 <Route exact path={"/order_now"} component={Order}/>
                 <Route exact path={"/cart"} component={Cart} />
