@@ -89,9 +89,13 @@ const Login = () => {
             </LogoutButton>) : ("")}
                         <MessageContainer> {message} </MessageContainer>
             </LoginContainer>
-            <Register>
-                <Link to={"/register"}>Register Here</Link>
-            </Register>
+            {isLoggedIn ? (
+                ""
+            ) : (
+                <Register>
+                    <Link to={"/register"}>Register Here</Link>
+                </Register>
+            )}
         </React.Fragment>
     );
 }
