@@ -10,11 +10,11 @@ const Order = () => {
     const [cart, setCart] = useContext(CartContext);
 
     useEffect(() => {
-        axios.get("/order/all", {withCredentials: true})
+        axios.get("/order/all")
             .then(resp => {
                 setMenu(resp.data)
             })
-    }) // In the future add a dependency array
+    }, []) // In the future add a dependency array
 
     function addItem(e) {
         let orderObject = {id: e.target.id, quantity: 1};
