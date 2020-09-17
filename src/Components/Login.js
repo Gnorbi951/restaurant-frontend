@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 import Cookies from 'universal-cookie';
 
 const Login = () => {
@@ -88,6 +89,7 @@ const Login = () => {
             </LogoutButton>) : ("")}
                         <MessageContainer> {message} </MessageContainer>
             </LoginContainer>
+            <Link to={"/register"}>Register Here</Link>
         </React.Fragment>
     );
 }
