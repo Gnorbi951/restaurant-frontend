@@ -10,7 +10,7 @@ const Order = () => {
     const [cart, setCart] = useContext(CartContext);
 
     useEffect(() => {
-        axios.get("/order/all", {withCredentials: true})
+        axios.get("/order/all")
             .then(resp => {
                 setMenu(resp.data)
             })
