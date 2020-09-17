@@ -14,7 +14,7 @@ const Order = () => {
             .then(resp => {
                 setMenu(resp.data)
             })
-    }) // In the future add a dependency array
+    }, []) // In the future add a dependency array
 
     function addItem(e) {
         let orderObject = {id: e.target.id, quantity: 1};
