@@ -107,25 +107,6 @@ const Button = styled.button`
     border-radius: 5px;
 `;
 
-const LogoutButton = styled.button`
-    width: auto;
-    padding: 0.8vw;
-    background-color: #141414;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    border-radius: 3px;
-    font-size: 1vw;
-    color: #fcbf49;
-    @media (max-width: 600px) {
-        font-size: 2vw;
-    }
-    &:hover {
-        transition: 350ms;
-        color: #f77f00;
-    }
-`;
-
 const MessageContainer = styled.div`
    font-size: 4vw;
    font-weight: bold;

@@ -18,7 +18,7 @@ const Order = () => {
             .then(resp => {
                 setMenu(resp.data)
             })
-    }, [])
+    }) // In the future add a dependency array
 
     function addItem(e) {
         let orderObject = {id: e.target.id, quantity: 1};
@@ -161,13 +161,13 @@ const CardTitle = styled.h2`
     margin: 0px;
 `;
 
-const CardText = styled.p`
-    color: #ffffff;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;    
-    font-weight: 400;
-`;
+// const CardText = styled.p`
+//     color: #ffffff;
+//     font-size: 0.875rem;
+//     line-height: 1.5;
+//     margin-bottom: 1.25rem;
+//     font-weight: 400;
+// `;
 
 const CardButton = styled.button`
    color: #ffffff;

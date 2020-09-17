@@ -89,10 +89,16 @@ const Login = () => {
             </LogoutButton>) : ("")}
                         <MessageContainer> {message} </MessageContainer>
             </LoginContainer>
-            <Link to={"/register"}>Register Here</Link>
+            <Register>
+                <Link to={"/register"}>Register Here</Link>
+            </Register>
         </React.Fragment>
     );
 }
+
+const Register = styled.div`
+    text-align: center
+`;
 
 const LoginContainer = styled.div`
     width: 40%;

@@ -8,6 +8,10 @@ const Cart = () => {
     const [cart, setCart] = useContext(CartContext);
     console.log(cart);
 
+    function changeValue() {
+
+    }
+
     return(
         <React.Fragment>
             <CartContainer>
@@ -33,12 +37,12 @@ const Cart = () => {
                             <CartButton className="plus-btn" type="button" name="button">
                                 +
                             </CartButton>
-                            <input type="text" name="name" value="1" />
+                            <input type="text" name="name" value="1" onChange={changeValue}/>
                                 <CartButton className="minus-btn" type="button" name="button">
                                     -
                                 </CartButton>
                         </div>
-                        <div className="total-price">$549</div>
+                        <div className="total-price">1800 Ft</div>
                     </Item>
                 </ShoppingCart>
             </CartContainer>
@@ -46,14 +50,14 @@ const Cart = () => {
     )
 }
 
-const Quantity = styled.div`
-  border: none;
-  text-align: center;
-  width: 32px;
-  font-size: 16px;
-  color: #43484D;
-  font-weight: 300;
-`;
+// const Quantity = styled.div`
+//   border: none;
+//   text-align: center;
+//   width: 32px;
+//   font-size: 16px;
+//   color: #43484D;
+//   font-weight: 300;
+// `;
 
 const CartButton = styled.button`
     position: relative;
