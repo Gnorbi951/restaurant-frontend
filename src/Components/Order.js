@@ -44,6 +44,7 @@ const Order = () => {
         }
     }
 
+
     if (localStorage.getItem("name") === null) {
         return(
             <React.Fragment>
@@ -56,7 +57,7 @@ const Order = () => {
                 <React.Fragment>
                     <Main>
                         <h1>Place your order</h1>
-                        <Cart href={"google.com"}><CartImg src={cartIcon} alt={"camera_icon"} /></Cart>
+                        <Cart type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal"><CartImg src={cartIcon} alt={"camera_icon"}/></Cart>
                         <Cards>
                             {menu.map((item) => (
                                 <CardsItem key={item.id}>
@@ -73,6 +74,7 @@ const Order = () => {
                             ))}
                         </Cards>
                     </Main>
+                    <ModalContainer className={"container"}>
                     <div className="modal fade" id="cartModal" tabIndex="-1" role="dialog"
                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -100,7 +102,7 @@ const Order = () => {
                                         <tbody>
                                         <tr>
                                             <td className="w-25">
-                                                <img
+                                                <ModalImage
                                                     src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png"
                                                     className="img-fluid img-thumbnail" alt="Sheep" />
                                             </td>
@@ -127,8 +129,11 @@ const Order = () => {
                                     <button type="button" className="btn btn-success">Checkout</button>
                                 </div>
                             </div>
+
                         </div>
+
                     </div>
+                    </ModalContainer>
                 </React.Fragment>
             );
         }
@@ -141,12 +146,29 @@ const Order = () => {
 
 }
 
+const ModalImage = styled.img`
+    width: 15vw;
+    height: 15vw;
+`;
+
+const ModalContainer = styled.div`
+    padding: 2rem;
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -25%; /* Negative half of height. */
+    margin-left: -30%; /* Negative half of width. */
+    background-color: white;
+    opacity: 0.95
+`;
+
 const CartImg = styled.img`
     max-width: 50px;
     max-height: 50px;
 `;
 
-const Cart = styled.a`
+const Cart = styled.button`
     width: 80px;
     height: 80px;
     background: #009879;
