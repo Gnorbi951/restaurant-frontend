@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import styled from "styled-components";
 import {CartContext} from "./Context/CartContext";
+import {Link} from "react-router-dom";
 import cartIcon from "../images/cart.webp"
 
 const Order = () => {
@@ -13,7 +14,6 @@ const Order = () => {
     };
 
     useEffect(() => {
-        console.log(localStorage.getItem("name"))
         axios.get("/order/all", config)
             .then(resp => {
                 setMenu(resp.data)
@@ -57,7 +57,7 @@ const Order = () => {
                 <React.Fragment>
                     <Main>
                         <h1>Place your order</h1>
-                        <Cart href={"/cart"}><CartImg src={cartIcon} alt={"camera_icon"}/></Cart>
+                        <Cart to={"/cart"}><CartImg src={cartIcon} alt={"camera_icon"}/></Cart>
                         <Cards>
                             {menu.map((item) => (
                                 <CardsItem key={item.id}>
@@ -90,7 +90,7 @@ const CartImg = styled.img`
     max-height: 50px;
 `;
 
-const Cart = styled.a`
+const Cart = styled(Link)`
     width: 80px;
     height: 80px;
     background: #009879;

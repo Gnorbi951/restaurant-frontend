@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
+import {CartContext} from "./Context/CartContext";
+import {Link} from "react-router-dom";
+
 
 const Cart = () => {
+    const [cart, setCart] = useContext(CartContext);
+    console.log(cart);
 
     return(
         <React.Fragment>
             <CartContainer>
-            <BackButton href={"/order_now"}>Back</BackButton>
+            <BackButton to={"/order_now"}>Back</BackButton>
             </CartContainer>
         </React.Fragment>
     )
@@ -17,7 +22,7 @@ const CartContainer = styled.div`
     padding: 1vw;
 `;
 
-const BackButton = styled.a`
+const BackButton = styled(Link)`
     margin-top: 200px;
     width: auto;
     padding: 1vw;
