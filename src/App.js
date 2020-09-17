@@ -12,10 +12,10 @@ import Register from "./Components/Register";
 
 function App() {
     axios.interceptors.request.use(function(config) {
-        config.url = process.env.REACT_APP_AXIOS_URL + config.url;
         if (config.url !== "/login" || config.url !== "/register") {
             config.withCredentials = true;
         }
+        config.url = process.env.REACT_APP_AXIOS_URL + config.url;
         return config;
     });
 
